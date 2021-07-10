@@ -68,14 +68,13 @@ class Solution {
         if (pre.next == null) {
             return head;
         }
+        //如果是链表是原地没变，一定要在前面判断返回，否则这里是null
         ListNode res = pre.next;
-//要遍历到最后一个节点而不是最后一个节点的next,就用这种方式遍历
+        //要遍历到最后一个节点而不是最后一个节点的next,就用这种方式遍历
         while (tail.next != null) {
             tail = tail.next;
         }
         pre.next = null;
-//如果是链表是原地没变，一定要在前面判断返回，否则这里tail.next变成head就会有环
-//或者和上一句代码换个位置
         tail.next = head;
         return res;
     }
